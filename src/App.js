@@ -1,7 +1,18 @@
+import {Col, Container, Row} from "reactstrap";
+import Navi from './Navi'
+import CategoryList from "./CategoryList";
+import ProductList from "./ProductList";
+
 function App() {
   return (
     <div className="App">
-
+      <Container>
+        <Row><Navi/></Row>
+        <Row>
+          <Col xs={3}><CategoryList/></Col>
+          <Col xs={9}><ProductList/></Col>
+        </Row>
+      </Container>
     </div>
   );
 }
