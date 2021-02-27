@@ -4,7 +4,7 @@ class CategoryList extends Component {
     render() {
         return (
             <div>
-                <h1>CategoryList Component</h1>
+                <h1>{this.props.info.title}</h1>
             </div>
         );
     }
