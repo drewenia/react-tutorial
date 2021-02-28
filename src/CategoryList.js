@@ -7,7 +7,12 @@ class CategoryList extends Component {
             {categoryId: "1", categoryName: "Beverages"},
             {categoryId: "2", categoryName: "Condiment"},
             {categoryId: "3", categoryName: "Drinks"}
-        ]
+        ],
+        currentCategory:""
+    }
+
+    changeCurrentCategoryAndSetTextH4Tag = (cat)=>{
+        this.setState({currentCategory:cat.categoryName})
     }
 
     render() {
