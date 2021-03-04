@@ -7,12 +7,7 @@ class CategoryList extends Component {
             {id: "1", categoryName: "Beverages"},
             {id: "2", categoryName: "Condiment"},
             {id: "3", categoryName: "Drinks"}
-        ],
-        currentCategory: ""
-    }
-
-    changeCurrentCategoryAndSetTextH4Tag = (cat) => {
-        this.setState({currentCategory: cat.categoryName})
+        ]
     }
 
     render() {
@@ -22,12 +17,12 @@ class CategoryList extends Component {
                <ListGroup>
                    {this.state.categories.map(cat=>
                        <ListGroupItem
-                           onClick={()=>this.changeCurrentCategoryAndSetTextH4Tag(cat)}
+                           onClick={()=>this.props.setCategory(cat)}
                            key={cat.id}>{cat.categoryName}
                        </ListGroupItem>
                    )}
                </ListGroup>
-                <h4>{this.state.currentCategory}</h4>
+                <h4>{this.props.currCategory}</h4>
             </div>
         );
     }
