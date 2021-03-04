@@ -9,11 +9,22 @@ class App extends Component {
     productInfo = {title: "Product List"}
 
     state = {
-        currentCategory: ""
+        currentCategory: "",
+        productList:[]
+    }
+
+    componentDidMount(){
+        this.getProductList();
     }
 
     setCurrentCategory = (cat) => {
         this.setState({currentCategory: cat.categoryName})
+    }
+
+    getProductList = ()=>{
+        fetch("http://localhost:3000/products")
+            .then(res=>res.json())
+            .then(data=>this.setState({productList: data}));
     }
 
     render() {
@@ -31,7 +42,11 @@ class App extends Component {
                         />
                         </Col>
                         <Col xs={9}><ProductList
-                            info={this.productInfo}/></Col>
+                            info={this.productInfo}
+                            products = {this.state.productList}
+                            currCategory = {this.state.currentCategory}
+                        />
+                        </Col>
                     </Row>
                 </Container>
             </div>
