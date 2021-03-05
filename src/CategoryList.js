@@ -23,12 +23,12 @@ class CategoryList extends Component {
                <ListGroup>
                    {this.state.categories.map(cat=>
                        <ListGroupItem
+                           active={cat.categoryName===this.props.currCategory?true:false}
                            onClick={()=>this.props.setCategory(cat)}
                            key={cat.id}>{cat.categoryName}
                        </ListGroupItem>
                    )}
                </ListGroup>
-                <h4>{this.props.currCategory}</h4>
             </div>
         );
     }
