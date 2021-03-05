@@ -21,8 +21,13 @@ class App extends Component {
         this.setState({currentCategory: cat.categoryName})
     }
 
-    getProductList = ()=>{
-        fetch("http://localhost:3000/products")
+    getProductList = (seoUrl)=>{
+        let url = "http://localhost:3000/products";
+        if (seoUrl){
+            //seoUrl define edilmis ise!
+            url+="/"+seoUrl;
+        }
+        fetch(url)
             .then(res=>res.json())
             .then(data=>this.setState({productList: data}));
     }
