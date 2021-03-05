@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {Table,Button} from 'reactstrap'
 
 class ProductList extends Component {
     render() {
         return (
             <div>
                 <h3>{this.props.info.title}</h3>
-                <table>
+                <Table>
                     <thead>
                     <tr>
                         <th>#</th>
@@ -24,11 +25,12 @@ class ProductList extends Component {
                                 <td>{product.quantityPerUnit}</td>
                                 <td>{product.unitPrice}</td>
                                 <td>{product.unitsInStock}</td>
+                                <td><Button color="info">add</Button></td>
                             </tr>
                         )
                     }
                     </tbody>
-                </table>
+                </Table>
             </div>
         );
     }
