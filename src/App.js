@@ -10,7 +10,7 @@ class App extends Component {
 
     state = {
         currentCategory: "",
-        productList:[]
+        productList:[],
     }
 
     componentDidMount(){
@@ -19,13 +19,13 @@ class App extends Component {
 
     setCurrentCategory = (cat) => {
         this.setState({currentCategory: cat.categoryName})
+        this.getProductList(cat.id)
     }
 
-    getProductList = (seoUrl)=>{
+    getProductList = (categoryId)=>{
         let url = "http://localhost:3000/products";
-        if (seoUrl){
-            //seoUrl define edilmis ise!
-            url+="/"+seoUrl;
+        if (categoryId){
+            url+="?categoryId="+categoryId;
         }
         fetch(url)
             .then(res=>res.json())
